@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE MONOLITH | It Is Not A Brick.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;family=JetBrains+Mono&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "void-black": "#0A0A0A",
+                        "onyx-black": "#161616",
+                        "ash-gray": "#8A8A8A",
+                        "bone-white": "#F0F0F0",
+                        "muted-gold": "#C5A059",
+                        "ember-red": "#d83528"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Playfair Display", "serif"],
+                        "label-lg": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", { "lineHeight": "90px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-xl-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-lg": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "label-md": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #F0F0F0;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom smooth cursor */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #F0F0F0;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            mix-blend-mode: difference;
+        }
+        /* Film Grain Texture Overlay */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 40;
+            opacity: 0.04;
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+        /* Chiaroscuro light effect */
+        .light-shaft {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            width: 1px;
+            height: 120%;
+            background: linear-gradient(180deg, transparent 0%, rgba(240, 240, 240, 0.05) 50%, transparent 100%);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        /* Remove shadows globally */
+        * {
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+    </style>
+</head>
+<body class="bg-void-black text-bone-white font-label-lg">
+<!-- Atmospheric Overlays -->
+<div class="light-shaft"></div>
+<div class="film-grain"></div>
+<div class="custom-cursor hidden md:block" id="cursor"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto border-b border-bone-white/10">
+<!-- Identity / Status -->
+<div class="flex flex-col gap-1">
+<span class="font-mono text-bone-white text-[10px] tracking-widest opacity-60">01 / 03</span>
+<span class="text-bone-white font-bold tracking-tighter text-xl md:text-2xl">THE MONOLITH</span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-12">
+<a class="text-bone-white border-b border-bone-white pb-1 transition-all duration-300" href="#">THE OBJECT</a>
+<a class="text-bone-white opacity-60 hover:opacity-100 transition-opacity duration-300" href="#">PROVENANCE</a>
+<a class="text-bone-white opacity-60 hover:opacity-100 transition-opacity duration-300" href="#">ACQUIRE</a>
+</nav>
+<!-- Secondary Identity -->
+<div class="text-right">
+<p class="font-label-lg tracking-[0.2em] text-bone-white opacity-60 text-[10px]">ATELIER MONOLITH</p>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative h-screen w-screen flex flex-col justify-center items-center overflow-hidden">
+<!-- Interactive 3D Placeholder Area -->
+<div class="relative w-full max-w-[1100px] aspect-video z-10 flex items-center justify-center group cursor-crosshair">
+<div class="absolute inset-0 border border-bone-white/5 group-hover:border-bone-white/10 transition-colors duration-1000"></div>
+<!-- Virtual Space -->
+<div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+<!-- Visual Placeholder for the "Floating Brick" -->
+<div class="relative w-1/3 h-1/2 bg-onyx-black border border-bone-white/20 transition-transform duration-[4000ms] ease-out flex items-center justify-center" id="monolith-object" style="transform: perspective(1000px) rotateY(12deg) rotateX(2deg);">
+<!-- Emblem -->
+<div class="border border-bone-white/10 p-4">
+<span class="material-symbols-outlined text-bone-white opacity-30 scale-150">architecture</span>
+</div>
+<!-- Label on the object -->
+<div class="absolute bottom-4 left-4">
+<span class="font-mono text-[8px] text-bone-white opacity-40 uppercase tracking-widest">Serial: M-0101</span>
+</div>
+</div>
+</div>
+<!-- Interactivity Hint -->
+<div class="absolute bottom-8 right-8 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+<span class="font-mono text-[10px] text-bone-white opacity-60">DRAG TO ROTATE</span>
+<div class="w-8 h-[1px] bg-bone-white opacity-40"></div>
+</div>
+</div>
+<!-- Headline & Typography Cluster -->
+<div class="absolute bottom-[102px] left-0 w-full px-margin-mobile md:px-margin-desktop z-20 flex flex-col items-center">
+<div class="text-center">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-bone-white mb-4">
+                    It Is Not A Brick.
+                </h1>
+<!-- Monospace Sub-label replacing gold line -->
+<p class="font-mono text-[10px] tracking-[0.3em] text-bone-white opacity-80 uppercase mb-4">ONE OF ONE</p>
+<p class="font-label-lg tracking-[0.4em] text-bone-white opacity-40 uppercase text-[12px] md:text-[14px]">
+                    It is a foundation.
+                </p>
+</div>
+</div>
+<!-- Meta Data / Caption Cluster -->
+<div class="absolute bottom-8 left-margin-mobile md:left-margin-desktop z-20">
+<p class="font-mono text-bone-white opacity-40 text-[10px] tracking-widest">
+                EST. 1890 — HAND-FIRED
+            </p>
+</div>
+<!-- Vertical Scroll Indicator -->
+<div class="absolute bottom-8 right-margin-mobile md:right-margin-desktop z-20 flex flex-col items-center gap-4">
+<div class="w-[1px] h-12 bg-gradient-to-b from-bone-white/40 to-transparent"></div>
+<span class="font-mono text-[10px] text-bone-white opacity-60 [writing-mode:vertical-rl] tracking-widest">SCROLL</span>
+</div>
+</main>
+<!-- Footer Overlay (Visual padding) -->
+<footer class="fixed bottom-0 left-0 w-full px-margin-mobile md:px-margin-desktop py-4 pointer-events-none">
+</footer>
+<script>
+        // Custom cursor logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Hover effect for the 3D placeholder (Imperceptibly slow)
+        const container = document.querySelector('.group');
+        const brick = document.getElementById('monolith-object');
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            // Calculation for rotation - drastically reduced for "almost imperceptible" feel
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            // Movement limited to 4 degrees for an ethereal, heavy feel
+            brick.style.transform = `perspective(1000px) rotateY(${x * 4}deg) rotateX(${y * -4}deg) translateZ(10px)`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            // Returns to a slight aesthetic offset slowly
+            brick.style.transform = 'perspective(1000px) rotateY(12deg) rotateX(2deg) translateZ(0)';
+        });
+    </script>
+</body></html>

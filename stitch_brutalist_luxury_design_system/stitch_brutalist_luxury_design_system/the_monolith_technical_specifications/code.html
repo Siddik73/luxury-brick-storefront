@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE MONOLITH | SPECIFICATIONS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#930003",
+                      "on-primary": "#690001",
+                      "tertiary": "#89ceff",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed": "#ffdea5",
+                      "tertiary-fixed-dim": "#89ceff",
+                      "on-surface": "#fadcd7",
+                      "primary": "#ffb4a9",
+                      "surface-container": "#2c1c19",
+                      "surface-dim": "#1e100d",
+                      "on-tertiary-container": "#f9fbff",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "surface-container-high": "#372623",
+                      "void-black": "#0A0A0A",
+                      "tertiary-container": "#007bb0",
+                      "on-error": "#690005",
+                      "error": "#ffb4ab",
+                      "outline": "#ab8984",
+                      "secondary": "#e9c176",
+                      "on-tertiary-fixed-variant": "#004c6e",
+                      "inverse-surface": "#fadcd7",
+                      "secondary-fixed-dim": "#e9c176",
+                      "on-tertiary-fixed": "#001e2f",
+                      "on-secondary-container": "#dab36a",
+                      "primary-container": "#d83528",
+                      "surface": "#1e100d",
+                      "surface-container-low": "#271815",
+                      "on-secondary-fixed": "#261900",
+                      "on-tertiary": "#00344d",
+                      "ash-gray": "#8A8A8A",
+                      "on-primary-fixed": "#410000",
+                      "primary-fixed": "#ffdad5",
+                      "bone-white": "#F0F0F0",
+                      "surface-container-lowest": "#180a09",
+                      "on-secondary": "#412d00",
+                      "inverse-primary": "#b91d15",
+                      "on-background": "#fadcd7",
+                      "surface-container-highest": "#43302e",
+                      "surface-variant": "#43302e",
+                      "background": "#1e100d",
+                      "inverse-on-surface": "#3e2c29",
+                      "surface-bright": "#473532",
+                      "onyx-black": "#161616",
+                      "outline-variant": "#5b403c",
+                      "on-surface-variant": "#e4beb8",
+                      "error-container": "#93000a",
+                      "secondary-container": "#604403",
+                      "on-primary-container": "#fffaf9",
+                      "primary-fixed-dim": "#ffb4a9",
+                      "surface-tint": "#ffb4a9",
+                      "tertiary-fixed": "#c9e6ff",
+                      "ember-red": "#D83528"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "margin-desktop": "64px",
+                      "unit": "4px",
+                      "container-max": "1440px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-xl": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "display-xl-mobile": ["Playfair Display"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Playfair Display"],
+                      "body-lg": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "headline-md": ["Playfair Display"],
+                      "label-md": ["Inter"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "mono-technical": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "display-xl": ["80px", {"lineHeight": "90px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-xl-mobile": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-lg": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                      "label-md": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #F0F0F0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+        }
+        .card-large {
+            grid-column: span 3;
+        }
+        .card-small {
+            grid-column: span 2;
+        }
+        @media (max-width: 768px) {
+            .card-large, .card-small {
+                grid-column: span 6;
+            }
+        }
+        .spec-card {
+            border: 1px solid #8A8A8A;
+            background-color: #161616;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .spec-card:hover {
+            border-color: #F0F0F0;
+            background-color: #1E1E1E;
+        }
+        .huge-number {
+            font-family: 'JetBrains Mono', monospace;
+            color: #D83528;
+            line-height: 0.9;
+        }
+        .kerning-tight {
+            letter-spacing: -0.05em;
+        }
+    </script>
+</head>
+<body class="bg-void-black text-on-background selection:bg-ember-red selection:text-white">
+
+    <!-- Header / TopNavBar Anchor -->
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-6 bg-void-black border-b border-ash-gray">
+        <div class="font-display-xl text-headline-md tracking-tighter text-on-surface">THE MONOLITH</div>
+        <div class="hidden md:flex items-center gap-10">
+            <a href="#" class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors duration-300">Atelier Monolith</a>
+            <a href="#" class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors duration-300">The Object</a>
+            <a href="#" class="font-label-lg text-label-lg uppercase tracking-widest text-primary font-bold border-b border-primary pb-1">Provenance</a>
+            <a href="#" class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors duration-300">Acquire</a>
+        </div>
+        <button class="bg-primary-container text-on-primary-container px-6 py-2 uppercase font-label-lg tracking-widest hover:bg-bone-white hover:text-void-black transition-all active:scale-95">
+            Acquire
+        </button>
+    </nav>
+
+    <!-- Main Content Canvas -->
+    <main class="pt-32 pb-32">
+        
+        <!-- Specifications Section -->
+        <section class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-[120px]">
+            
+            <!-- Section Title -->
+            <div class="mb-20">
+                <h2 class="font-label-lg text-label-lg uppercase tracking-[0.3em] text-ash-gray mb-4">Metric / Integrity</h2>
+                <h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface max-w-4xl">Technical Specifications of Absolute Structuralism.</h1>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="bento-grid">
+                
+                <!-- Card 1: Large -->
+                <div class="spec-card card-large aspect-[4/3] flex flex-col justify-center items-center p-12 text-center group">
+                    <div class="huge-number text-[80px] md:text-[120px] kerning-tight mb-4 transition-transform duration-500 group-hover:scale-110">1,200°C</div>
+                    <div class="font-body-sm text-body-sm uppercase tracking-[0.2em] text-bone-white">Firing Temperature</div>
+                    <div class="absolute bottom-4 right-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-4xl">thermostat</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Large -->
+                <div class="spec-card card-large aspect-[4/3] flex flex-col justify-center items-center p-12 text-center group">
+                    <div class="huge-number text-[80px] md:text-[120px] kerning-tight mb-4 transition-transform duration-500 group-hover:scale-110">4.2 kg</div>
+                    <div class="font-body-sm text-body-sm uppercase tracking-[0.2em] text-bone-white">Mass Per Unit</div>
+                    <div class="absolute bottom-4 right-4 opacity-10 group-hover:opacity-30 transition-opacity">
+                        <span class="material-symbols-outlined text-4xl">weight</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Small -->
+                <div class="spec-card card-small aspect-square flex flex-col justify-center items-center p-8 text-center group">
+                    <div class="huge-number text-[48px] md:text-[64px] mb-4 transition-transform duration-500 group-hover:scale-105">0.001%</div>
+                    <div class="font-body-sm text-body-sm uppercase tracking-[0.15em] text-bone-white">Defect Tolerance</div>
+                </div>
+
+                <!-- Card 4: Small -->
+                <div class="spec-card card-small aspect-square flex flex-col justify-center items-center p-8 text-center group">
+                    <div class="huge-number text-[48px] md:text-[64px] mb-4 transition-transform duration-500 group-hover:scale-105">1890</div>
+                    <div class="font-body-sm text-body-sm uppercase tracking-[0.15em] text-bone-white">Year Established</div>
+                </div>
+
+                <!-- Card 5: Small -->
+                <div class="spec-card card-small aspect-square flex flex-col justify-center items-center p-8 text-center group">
+                    <div class="huge-number text-[80px] md:text-[100px] mb-4 transition-transform duration-500 group-hover:scale-110">∞</div>
+                    <div class="font-body-sm text-body-sm uppercase tracking-[0.15em] text-bone-white">Structural Lifespan</div>
+                </div>
+
+            </div>
+
+            <!-- Descriptive Text Block -->
+            <div class="mt-32 grid grid-cols-1 md:grid-cols-12 gap-gutter border-t border-outline-variant pt-12">
+                <div class="md:col-span-4">
+                    <h3 class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface">The Alchemical Process</h3>
+                </div>
+                <div class="md:col-span-8">
+                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Every Monolith is forged under extreme conditions to ensure material density that rivals celestial bodies. Through a proprietary high-pressure sintering process, we achieve a molecular bond that transcends the limitations of traditional manufacturing. These specifications are not goals; they are the immutable baseline of our craftsmanship.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Decorative Spacer with Shader potential -->
+        <section class="h-[614px] w-full relative overflow-hidden bg-onyx-black flex items-center justify-center">
+            <webgl-shader src="{{DATA:ANIMATION:ANIMATION_1}}" class="absolute inset-0 w-full h-full opacity-40"></webgl-shader>
+            <div class="relative z-10 text-center px-margin-mobile">
+                <h2 class="font-display-xl text-headline-lg md:text-display-xl text-bone-white italic">"Unyielding. Eternal. Precise."</h2>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Anchor -->
+    <footer class="w-full py-16 px-margin-desktop bg-void-black border-t border-ash-gray">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-gutter">
+            <div class="font-headline-lg text-headline-lg text-on-surface tracking-tighter">THE MONOLITH</div>
+            <div class="flex flex-wrap gap-8">
+                <a href="#" class="font-body-sm text-body-sm uppercase tracking-widest text-on-surface">Specifications</a>
+                <a href="#" class="font-body-sm text-body-sm uppercase tracking-widest text-ash-gray hover:text-on-surface transition-colors">Integrity</a>
+                <a href="#" class="font-body-sm text-body-sm uppercase tracking-widest text-ash-gray hover:text-on-surface transition-colors">Sustainability</a>
+                <a href="#" class="font-body-sm text-body-sm uppercase tracking-widest text-ash-gray hover:text-on-surface transition-colors">Inquiries</a>
+            </div>
+        </div>
+        <div class="mt-12 flex flex-col md:flex-row justify-between items-center border-t border-outline-variant pt-8">
+            <p class="font-body-sm text-body-sm uppercase tracking-widest text-ash-gray">© 2024 THE MONOLITH. ALL RIGHTS RESERVED.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <span class="font-body-sm text-ash-gray uppercase tracking-widest cursor-pointer hover:text-bone-white transition-colors">Instagram</span>
+                <span class="font-body-sm text-ash-gray uppercase tracking-widest cursor-pointer hover:text-bone-white transition-colors">Journal</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Micro-interaction for smooth scrolling and card entry
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.spec-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('opacity-100');
+                            entry.target.classList.remove('translate-y-10');
+                        }, index * 100);
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach(card => {
+                card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html></style></head><body></body></html>
