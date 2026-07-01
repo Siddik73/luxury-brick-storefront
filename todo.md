@@ -33,7 +33,7 @@
 ## Phase 6: Quality Assurance & Submission
 
 - [x] **Commit & Push:** Commit the final code version and push the repository to GitHub [2].
-- [ ] **AI Code Review:** Integrate CodeRabbit into the GitHub repository to automatically scan for bugs, edge cases, and vulnerabilities before final deployment [2, 18].
+- [x] **AI Code Review:** Integrate CodeRabbit into the GitHub repository to automatically scan for bugs, edge cases, and vulnerabilities before final deployment [2, 18].
 - [ ] **Draft Pitch Doc:** Write the 150-word vision, tools, and prompting style summary.
 - [ ] **Record Video Pitch:** Record the maximum 3-minute video showing the intention, AI prompts used, and a live demonstration of the site's interactivity and fluidity.
 
