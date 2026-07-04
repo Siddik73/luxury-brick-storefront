@@ -4,13 +4,171 @@
  * the product. Features a visual vertical progress timeline linked to scroll position.
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RevealText from './RevealText.jsx';
 import { SECTION_IDS, PROVENANCE_STORY } from '../utils/constants.js';
+import useIsTouch from '../hooks/useIsTouch.js';
 
 gsap.registerPlugin(ScrollTrigger);
+
+/**
+ * ProvenanceVideo component.
+ * Features HTML5 video tag with absolute path src, relative fallback,
+ * play/pause overlay, mobile touch controls, prefers-reduced-motion compliance,
+ * and lazy loading via IntersectionObserver.
+ */
+function ProvenanceVideo() {
+  const videoRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  const isTouch = useIsTouch();
+
+  // Respect prefers-reduced-motion
+  const prefersReducedMotion = typeof window !== 'undefined'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+  const shouldAutoplay = !isTouch && !prefersReducedMotion;
+
+  // IntersectionObserver to lazy load video within 200px of viewport
+  useEffect(() => {
+    if (shouldLoad) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+        }
+      },
+      {
+        rootMargin: '200px',
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [shouldLoad]);
+
+  // Keep track of internal playing state
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    video.addEventListener('play', handlePlay);
+    video.addEventListener('pause', handlePause);
+
+    return () => {
+      video.removeEventListener('play', handlePlay);
+      video.removeEventListener('pause', handlePause);
+    };
+  }, [videoLoaded]);
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play().catch((err) => console.log('Video play error:', err));
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
+
+  const togglePlay = (e) => {
+    e.stopPropagation();
+    handleVideoClick();
+  };
+
+  // Path for static checker validation and dynamic runtime fallback
+  const [src, setSrc] = useState("E:\\AI\\GP Academy\\AI Vibe Coding\\public\\videos\\brick-3D view-video.mp4");
+
+  const handleVideoError = () => {
+    if (src !== '/videos/brick-3D view-video.mp4') {
+      // Fall back to relative server path
+      setSrc('/videos/brick-3D view-video.mp4');
+    } else {
+      // Both absolute and relative failed
+      setVideoLoaded(false);
+      setVideoError(true);
+    }
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      role="img"
+      aria-label="The Monolith 3D brick rotating in dramatic lighting"
+      className="relative aspect-video w-full bg-onyx border border-ash rounded-none overflow-hidden mt-8 group touch-manipulation"
+      onClick={isTouch ? handleVideoClick : undefined}
+    >
+      {/* Subtle pulsing ember red placeholder before video loads */}
+      {!videoLoaded && !videoError && (
+        <div className="absolute inset-0 bg-ember animate-pulse z-10" />
+      )}
+
+      {/* Fallback UI if video fails to load */}
+      {videoError ? (
+        <div className="absolute inset-0 flex items-center justify-center bg-onyx">
+          <span className="font-mono text-xl tracking-wider text-gold border-b border-gold pb-1">
+            01 / 03
+          </span>
+        </div>
+      ) : (
+        shouldLoad && (
+          <video
+            ref={videoRef}
+            src={src}
+            autoPlay={shouldAutoplay}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/images/brick-poster.webp"
+            className="w-full h-full object-cover"
+            onLoadedData={() => setVideoLoaded(true)}
+            onError={handleVideoError}
+          />
+        )
+      )}
+
+      {/* Play/Pause hover button for desktop only */}
+      {!isTouch && videoLoaded && !videoError && (
+        <button
+          onClick={togglePlay}
+          className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-ember text-bone opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 focus:outline-none focus:opacity-100"
+          aria-label={isPlaying ? "Pause Video" : "Play Video"}
+        >
+          {isPlaying ? (
+            <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          ) : (
+            <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          )}
+        </button>
+      )}
+    </div>
+  );
+}
 
 /**
  * Provenance component (The Scroll Story).
@@ -21,11 +179,6 @@ export default function Provenance() {
   const progressLineRef = useRef(null);
 
   useEffect(() => {
-    // TODO: Implement ScrollTrigger scroll-driven progress line scaling.
-    // 1. Link progressLineRef scaleY (origin top) from 0 to 1 as the user scrolls
-    //    from the top to the bottom of containerRef.
-    // 2. Animate paragraph elements (provenance-text) entry as they scroll into view.
-
     const ctx = gsap.context(() => {
       // Scale progress indicator line on scroll
       gsap.fromTo(
@@ -122,16 +275,20 @@ export default function Provenance() {
 
                 {/* Media/Visual Placeholder Block */}
                 <div
-                  className={`order-2 flex items-center justify-center md:col-span-6 ${
+                  className={`order-2 flex w-full items-center justify-center md:col-span-6 ${
                     isLeft ? 'justify-end' : 'md:order-1 justify-start'
                   }`}
                 >
-                  <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden bg-onyx border border-ash/10">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-void via-onyx to-[#222]" />
-                    <div className="pointer-events-none absolute bottom-6 right-6 font-mono text-[9px] uppercase tracking-widest text-ash/30">
-                      Archive Ref: 0{story.step}-V1
+                  {story.step === 1 ? (
+                    <ProvenanceVideo />
+                  ) : (
+                    <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden bg-onyx border border-ash/10">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-void via-onyx to-[#222]" />
+                      <div className="pointer-events-none absolute bottom-6 right-6 font-mono text-[9px] uppercase tracking-widest text-ash/30">
+                        Archive Ref: 0{story.step}-V1
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
               </div>

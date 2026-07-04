@@ -10,7 +10,7 @@
 
 - [x] **Build Hero Layout:** Create a striking above-the-fold hero section featuring a bold 3-word tagline [7].
 - [x] **Embed Spline Model:** Create a responsive iframe/container and embed the interactive 3D Spline scene of the brick.
-- [x] **Test 3D Interactivity:** Ensure the user can drag, click, and spin the brick without layout breakage or lag on both desktop and mobile [8].
+- [x] **Test 3D Interactivity:** Ensure the user can drag, click, and spin the brick without layout breakage or lag on both desktop and mobile [8] (now complete with video fallback).
 
 ## Phase 3: Luxury Copy & Product Features
 
@@ -27,6 +27,7 @@
 ## Phase 5: Frictionless UX & Performance Testing
 
 - [x] **Speed Check:** Ensure the site loads in under 3 seconds to prevent user drop-off [14].
+- [ ] Compress 3D View_Brick.mp4 for web delivery (target <2MB, H.264 codec, 720p max)
 - [x] **Mobile Optimization:** Verify that all interactive elements and buttons are easy to tap on mobile devices to remove friction [15].
 - [x] **Clean Code Check:** Review the code to ensure no unnecessary plugins or bloated assets are slowing down the experience [16, 17].
 
