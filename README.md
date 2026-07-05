@@ -18,7 +18,7 @@ An ultra-premium, one-of-one digital storefront for a single red brick — becau
 </p>
 
 <p align="center">
-  <a href="#"><strong>🔗 View Live Demo »</strong></a>
+  <a href="https://luxury-brick-storefront.vercel.app/"><strong>🔗 View Live Demo »</strong></a>
 </p>
 
 ---
