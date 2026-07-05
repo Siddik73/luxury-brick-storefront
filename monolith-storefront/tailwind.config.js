@@ -5,17 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        void: '#0A0A0A',
-        ember: '#D83528',
-        bone: '#F0F0F0',
-        ash: '#8A8A8A',
-        gold: '#C5A059',
-        onyx: '#161616',
+        void: 'var(--bg-deep)',
+        ember: 'var(--clay-primary)',
+        'clay-deep': 'var(--clay-deep)',
+        bone: 'var(--text-primary)',
+        ash: 'var(--text-muted)',
+        gold: 'var(--accent)',
+        onyx: 'var(--bg-surface)',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        serif: ['var(--font-serif)', 'serif'],
+        sans: ['var(--font-sans)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
     },
   },

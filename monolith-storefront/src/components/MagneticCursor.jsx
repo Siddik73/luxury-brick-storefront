@@ -4,7 +4,7 @@
  * to track mouse positions using linear interpolation (lerp). Hides on touch devices.
  */
 
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import useMagneticCursor from '../hooks/useMagneticCursor.js';
 import useIsTouch from '../hooks/useIsTouch.js';
 

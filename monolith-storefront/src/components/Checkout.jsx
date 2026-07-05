@@ -5,7 +5,7 @@
  * and the primary transaction button priced at $1,250 USD.
  */
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RevealText from './RevealText.jsx';
@@ -49,8 +49,10 @@ export default function Checkout() {
     const handleMouseMove = (e) => {
       if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
       
-      const x = (window.innerWidth / 2 - e.pageX) / 60;
-      const y = (window.innerHeight / 2 - e.pageY) / 60;
+      // clientX/Y are viewport-relative; pageX/Y include scroll offset and
+      // would translate the price ~100px off its slot this deep in the page
+      const x = (window.innerWidth / 2 - e.clientX) / 60;
+      const y = (window.innerHeight / 2 - e.clientY) / 60;
 
       gsap.to(priceRef.current, {
         x,

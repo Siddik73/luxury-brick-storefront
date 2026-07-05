@@ -4,7 +4,7 @@
  * Includes interactive cards with hover states and entering transitions.
  */
 
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RevealText from './RevealText.jsx';
@@ -71,17 +71,35 @@ export default function Specs() {
             return (
               <div
                 key={spec.label}
-                className={`spec-card group flex aspect-square flex-col justify-between border border-ash/20 bg-onyx p-12 transition-colors duration-500 hover:border-bone ${
+                className={`spec-card group relative flex aspect-square flex-col justify-between overflow-hidden border border-ash/20 bg-onyx p-12 transition-colors duration-500 hover:border-bone ${
                   isLarge ? 'md:col-span-3' : 'md:col-span-2'
                 }`}
               >
+                {/* Archival photograph layer */}
+                {spec.image && (
+                  <>
+                    <img
+                      src={spec.image}
+                      alt={spec.imageAlt}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover opacity-35 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-50"
+                    />
+                    {/* Contrast scrim so label and value stay legible over the photo */}
+                    <div
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-onyx/75"
+                      aria-hidden="true"
+                    />
+                  </>
+                )}
+
                 {/* Metric Label */}
-                <span className="font-mono text-xs uppercase tracking-widest text-ash group-hover:text-bone transition-colors duration-300">
+                <span className="relative z-10 font-mono text-xs uppercase tracking-widest text-ash group-hover:text-bone transition-colors duration-300">
                   {spec.label}
                 </span>
 
                 {/* Metric Numeric Value */}
-                <div className="flex flex-col gap-2">
+                <div className="relative z-10 flex flex-col gap-2">
                   <span className="font-mono text-5xl font-normal tracking-tighter text-ember md:text-7xl">
                     {spec.value}
                   </span>

@@ -31,3 +31,17 @@ dist-ssr
 
 # Backups/Temporary configs
 *.backup
+
+# Environment variables (never commit real values; .env.example is allowed)
+.env
+.env.*
+!.env.example
+
+# Local editor/agent config
+.claude/settings.local.json
+
+# GSD runtime state (managed by GSD itself, never committed)
+.gsd/gsd.db*
+.gsd/runtime/
+.gsd-worktrees/
+.gsd-backups/

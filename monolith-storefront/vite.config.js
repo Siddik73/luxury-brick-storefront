@@ -17,19 +17,12 @@ export default defineConfig({
     host: true,
   },
 
-  define: {
-    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
-    __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
-  },
-
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           gsap: ['gsap'],
-          spline: ['@splinetool/react-spline', '@splinetool/runtime'],
-          physics: ['matter-js'],
         },
       },
     },

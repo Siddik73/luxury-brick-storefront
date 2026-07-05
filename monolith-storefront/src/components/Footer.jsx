@@ -4,7 +4,6 @@
  * navigational anchors, and legal terms) plus a pretentious email subscription input.
  */
 
-import React from 'react';
 import { COPY_TEXT } from '../utils/constants.js';
 
 /**
@@ -26,7 +25,7 @@ export default function Footer() {
         <div className="md:col-span-5 flex flex-col gap-6">
           <div className="font-serif text-3xl uppercase tracking-tighter text-bone">The Monolith</div>
           <p className="max-w-xs font-serif text-sm italic leading-relaxed text-ash/60">
-            "A singular manifestation of architectural silence and refined geometry."
+            &ldquo;A singular manifestation of architectural silence and refined geometry.&rdquo;
           </p>
         </div>
 
@@ -67,9 +66,9 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] border-t border-ash/10 mt-16 pt-8 flex flex-col gap-6 justify-between font-mono text-[9px] uppercase tracking-widest text-ash/40 md:flex-row">
         <p>{COPY_TEXT.FOOTER_COPYRIGHT}</p>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-bone/80 transition-colors duration-200">Security</a>
-          <a href="#" className="hover:text-bone/80 transition-colors duration-200">Curation Policy</a>
-          <a href="#" className="hover:text-bone/80 transition-colors duration-200">Legal Archives</a>
+          <a href="#/security" className="hover:text-bone/80 transition-colors duration-200">Security</a>
+          <a href="#/curation-policy" className="hover:text-bone/80 transition-colors duration-200">Curation Policy</a>
+          <a href="#/legal-archives" className="hover:text-bone/80 transition-colors duration-200">Legal Archives</a>
         </div>
       </div>
     </footer>

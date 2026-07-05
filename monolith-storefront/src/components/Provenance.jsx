@@ -4,169 +4,113 @@
  * the product. Features a visual vertical progress timeline linked to scroll position.
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RevealText from './RevealText.jsx';
 import { SECTION_IDS, PROVENANCE_STORY } from '../utils/constants.js';
-import useIsTouch from '../hooks/useIsTouch.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Archive plate photographs per story step (steps without an entry keep the placeholder)
+const PROVENANCE_MEDIA = {
+  1: {
+    src: '/images/brick-clay-raw.webp',
+    alt: 'A macro photograph of raw compressed earth clay, showing the layered geological striations of silica, alumina, and iron oxides that form the foundation of The Monolith. The textured surface reveals mineral deposits and sedimentary layers untouched by modernity.',
+    refLabel: 'Ref. 01-CLAY',
+  },
+  2: {
+    src: '/images/brick-kiln-fired.webp',
+    alt: 'A brick glowing ember-red inside an industrial kiln at 1,200°C, surrounded by radiant heat and firing racks. The intense thermal exposure crystallizes the clay into permanent structural form over seventy-two continuous hours.',
+    refLabel: 'Ref. 02-KILN',
+  },
+  3: {
+    src: '/images/brick-structure-analysis.webp',
+    alt: 'Structural analysis of premium brick',
+    refLabel: 'Ref. 03-STRUCT',
+    eager: true,
+  },
+};
+
 /**
- * ProvenanceVideo component.
- * Features HTML5 video tag with absolute path src, relative fallback,
- * play/pause overlay, mobile touch controls, prefers-reduced-motion compliance,
- * and lazy loading via IntersectionObserver.
+ * ProvenanceImage component — museum-catalog style archive plate.
+ * Static photograph with an ember radial glow, corner reference labels,
+ * gold hover underline, and a fade-up reveal driven by IntersectionObserver.
+ * @param {object} props
+ * @param {string} props.src - Web path of the image to display.
+ * @param {string} props.alt - Descriptive alt text.
+ * @param {string} props.refLabel - Museum catalog reference label (top-left corner).
+ * @param {boolean} [props.eager=false] - Load immediately instead of lazily.
  */
-function ProvenanceVideo() {
-  const videoRef = useRef(null);
-  const containerRef = useRef(null);
+function ProvenanceImage({ src, alt, refLabel, eager = false }) {
+  const imageRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [shouldLoad, setShouldLoad] = useState(false);
-
-  const isTouch = useIsTouch();
-
-  // Respect prefers-reduced-motion
-  const prefersReducedMotion = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    : false;
-  const shouldAutoplay = !isTouch && !prefersReducedMotion;
-
-  // IntersectionObserver to lazy load video within 200px of viewport
   useEffect(() => {
-    if (shouldLoad) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShouldLoad(true);
+          setIsVisible(true);
+          observer.disconnect();
         }
       },
-      {
-        rootMargin: '200px',
-        threshold: 0.1,
-      }
+      { threshold: 0.2 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
     }
 
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, [shouldLoad]);
-
-  // Keep track of internal playing state
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handlePlay = () => setIsPlaying(true);
-    const handlePause = () => setIsPlaying(false);
-
-    video.addEventListener('play', handlePlay);
-    video.addEventListener('pause', handlePause);
-
-    return () => {
-      video.removeEventListener('play', handlePlay);
-      video.removeEventListener('pause', handlePause);
-    };
-  }, [videoLoaded]);
-
-  const handleVideoClick = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play().catch((err) => console.log('Video play error:', err));
-        setIsPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      }
-    }
-  };
-
-  const togglePlay = (e) => {
-    e.stopPropagation();
-    handleVideoClick();
-  };
-
-  // Path for static checker validation and dynamic runtime fallback
-  const [src, setSrc] = useState("E:\\AI\\GP Academy\\AI Vibe Coding\\public\\videos\\brick-3D view-video.mp4");
-
-  const handleVideoError = () => {
-    if (src !== '/videos/brick-3D view-video.mp4') {
-      // Fall back to relative server path
-      setSrc('/videos/brick-3D view-video.mp4');
-    } else {
-      // Both absolute and relative failed
-      setVideoLoaded(false);
-      setVideoError(true);
-    }
-  };
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div
-      ref={containerRef}
-      role="img"
-      aria-label="The Monolith 3D brick rotating in dramatic lighting"
-      className="relative aspect-video w-full bg-onyx border border-ash rounded-none overflow-hidden mt-8 group touch-manipulation"
-      onClick={isTouch ? handleVideoClick : undefined}
+    <figure
+      ref={imageRef}
+      className={`provenance-image-wrapper ${isVisible ? 'is-visible' : ''} relative w-full aspect-[4/3] bg-onyx border border-ash overflow-hidden group`}
     >
-      {/* Subtle pulsing ember red placeholder before video loads */}
-      {!videoLoaded && !videoError && (
-        <div className="absolute inset-0 bg-ember animate-pulse z-10" />
-      )}
+      {/* Subtle ember radial glow behind the image for premium feel */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30 mix-blend-screen"
+        style={{
+          background: 'radial-gradient(circle at 50% 60%, rgba(216, 53, 40, 0.4) 0%, transparent 70%)'
+        }}
+        aria-hidden="true"
+      />
 
-      {/* Fallback UI if video fails to load */}
-      {videoError ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-onyx">
-          <span className="font-mono text-xl tracking-wider text-gold border-b border-gold pb-1">
-            01 / 03
-          </span>
-        </div>
-      ) : (
-        shouldLoad && (
-          <video
-            ref={videoRef}
-            src={src}
-            autoPlay={shouldAutoplay}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/images/brick-poster.webp"
-            className="w-full h-full object-cover"
-            onLoadedData={() => setVideoLoaded(true)}
-            onError={handleVideoError}
-          />
-        )
-      )}
+      {/* The archive plate photograph */}
+      <img
+        src={src}
+        alt={alt}
+        className="relative w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        onError={(e) => {
+          e.currentTarget.src = '/brick-fallback.png';
+          e.currentTarget.alt = 'The Monolith — compressed earth foundation';
+        }}
+      />
 
-      {/* Play/Pause hover button for desktop only */}
-      {!isTouch && videoLoaded && !videoError && (
-        <button
-          onClick={togglePlay}
-          className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-ember text-bone opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 focus:outline-none focus:opacity-100"
-          aria-label={isPlaying ? "Pause Video" : "Play Video"}
-        >
-          {isPlaying ? (
-            <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-            </svg>
-          ) : (
-            <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          )}
-        </button>
-      )}
-    </div>
+      {/* Subtle dark gradient at the bottom for depth */}
+      <div
+        className="absolute inset-0 pointer-events-none bg-gradient-to-t from-void/50 via-transparent to-transparent"
+        aria-hidden="true"
+      />
+
+      {/* Corner labels — museum-catalog style */}
+      <span className="absolute top-3 left-3 font-mono text-[10px] tracking-[0.2em] text-bone/70 uppercase">
+        {refLabel}
+      </span>
+      <span className="absolute bottom-3 right-3 font-mono text-[10px] tracking-[0.2em] text-bone/70 uppercase">
+        Archive Plate
+      </span>
+
+      {/* Thin gold underline accent on hover */}
+      <div
+        className="absolute bottom-0 left-0 h-px bg-gold transition-all duration-700 ease-out w-0 group-hover:w-full"
+        aria-hidden="true"
+      />
+    </figure>
   );
 }
 
@@ -265,7 +209,7 @@ export default function Provenance() {
                   </RevealText>
                   
                   <p className="mb-8 font-serif text-xl italic leading-relaxed text-ash">
-                    "{story.tagline}"
+                    &ldquo;{story.tagline}&rdquo;
                   </p>
                   
                   <p className="max-w-md leading-relaxed text-ash/70">
@@ -279,8 +223,8 @@ export default function Provenance() {
                     isLeft ? 'justify-end' : 'md:order-1 justify-start'
                   }`}
                 >
-                  {story.step === 1 ? (
-                    <ProvenanceVideo />
+                  {PROVENANCE_MEDIA[story.step] ? (
+                    <ProvenanceImage {...PROVENANCE_MEDIA[story.step]} />
                   ) : (
                     <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden bg-onyx border border-ash/10">
                       <div className="absolute inset-0 bg-gradient-to-tr from-void via-onyx to-[#222]" />

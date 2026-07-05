@@ -31,30 +31,40 @@ export const PRODUCT_SPECS = [
     value: '1,200°C',
     subtext: 'Solidification point inside continuous active updraft kilns.',
     layout: 'large',
+    image: '/images/brick-kiln-fired.webp',
+    imageAlt: 'Brick firing kiln at 1,200°C',
   },
   {
     label: 'Mass Index',
     value: '4.2 kg',
     subtext: 'Optimal structural inertia and resistance index.',
     layout: 'large',
+    image: '/images/brick-measuring-tool.webp',
+    imageAlt: 'Precision measuring tool for brick mass index',
   },
   {
     label: 'Curation Defect Limit',
     value: '0.001%',
     subtext: 'Ultrasonic integrity verification.',
     layout: 'small',
+    image: '/images/brick-quality-inspection.webp',
+    imageAlt: 'Ultrasonic quality inspection of brick',
   },
   {
     label: 'Earthen Origin',
     value: '1890',
     subtext: 'Historical silicate riverbed deposits.',
     layout: 'small',
+    image: '/images/brick-geological-origin.webp',
+    imageAlt: 'Geological origin of silicate riverbed deposits',
   },
   {
     label: 'Projected Life',
     value: '∞ Yrs',
     subtext: 'Guaranteed elemental permanence.',
     layout: 'small',
+    image: '/images/brick-aged-patina.webp',
+    imageAlt: 'Aged patina showing elemental permanence',
   },
 ];
 
@@ -79,9 +89,3 @@ export const PROVENANCE_STORY = [
     body: 'A quiet protest against the ephemeral trends of digital screens. The Monolith stands as a raw, tangible anchor in a passing world.',
   },
 ];
-
-// External assets and Spline urls
-export const EXTERNAL_LINKS = {
-  // TODO: Insert customized interactive Spline code file link
-  SPLINE_SCENE: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
-};
