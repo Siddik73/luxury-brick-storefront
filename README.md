@@ -122,7 +122,7 @@ npm --version
 
 ```bash
 git clone https://github.com/Siddik73/luxury-brick-storefront.git
-cd luxury-brick-storefront
+cd luxury-brick-storefront/monolith-storefront
 npm install
 ```
 
@@ -140,7 +140,7 @@ The app will be available at `http://localhost:5173`.
 npm run build
 ```
 
-`npm run build` type-checks the project with `tsc` before bundling with Vite; the optimized output is written to `dist/`.
+The optimized output is written to `monolith-storefront/dist/`.
 
 ## Usage
 

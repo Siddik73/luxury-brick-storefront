@@ -45,3 +45,8 @@ dist-ssr
 .gsd/runtime/
 .gsd-worktrees/
 .gsd-backups/
+
+# External skills tool cache — a separate third-party git clone, not
+# part of this project's history. Referenced by .agents/skills.json
+# via absolute path; keep it on disk, never track/commit it.
+github skills/
