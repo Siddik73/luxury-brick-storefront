@@ -36,6 +36,7 @@ export default function Footer() {
           <a href="#provenance" className="hover:text-bone transition-colors duration-300">Provenance</a>
           <a href="#specs" className="hover:text-bone transition-colors duration-300">Specifications</a>
           <a href="#playground" className="hover:text-bone transition-colors duration-300">Playground</a>
+          <a href="#commons" className="hover:text-bone transition-colors duration-300">The Commons</a>
         </div>
 
         {/* Column 3: Pretentious Newsletter Subscription */}

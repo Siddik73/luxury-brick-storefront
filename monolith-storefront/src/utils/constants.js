@@ -11,6 +11,7 @@ export const SECTION_IDS = {
   SPECS: 'specs',
   PLAYGROUND: 'playground',
   CHECKOUT: 'checkout',
+  COMMONS: 'commons',
 };
 
 // Site Copy Details (Pretentious Luxury Branding Jargon)

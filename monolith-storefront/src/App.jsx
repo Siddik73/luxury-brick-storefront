@@ -12,6 +12,7 @@ import Hero from './components/Hero.jsx';
 import Provenance from './components/Provenance.jsx';
 import Specs from './components/Specs.jsx';
 import Checkout from './components/Checkout.jsx';
+import TheCommons from './components/TheCommons.jsx';
 import Footer from './components/Footer.jsx';
 import MagneticCursor from './components/MagneticCursor.jsx';
 import ProtocolPage from './components/ProtocolPage.jsx';
@@ -90,7 +91,7 @@ export default function App() {
         <div className="font-serif text-2xl uppercase tracking-tighter text-bone select-none">The Monolith</div>
         
         {/* Segment Selector Pills */}
-        <div className="flex gap-1.5 rounded-full border border-ash/10 bg-void/50 p-1">
+        <div className="flex max-w-full flex-wrap justify-center gap-1.5 rounded-full border border-ash/10 bg-void/50 p-1">
           {[
             { id: 'decorative', label: 'Decorative' },
             { id: 'construction', label: 'Construction' },
@@ -122,6 +123,9 @@ export default function App() {
             </a>
             <a href="#playground" className="magnetic flex min-h-[44px] items-center font-mono text-[10px] uppercase tracking-widest text-ash transition-colors duration-300 hover:text-bone">
               Playground
+            </a>
+            <a href="#commons" className="magnetic flex min-h-[44px] items-center font-mono text-[10px] uppercase tracking-widest text-ash transition-colors duration-300 hover:text-bone">
+              Commons
             </a>
           </div>
           
@@ -162,6 +166,7 @@ export default function App() {
             </Suspense>
 
             <Checkout />
+            <TheCommons />
           </motion.main>
         )}
       </AnimatePresence>
