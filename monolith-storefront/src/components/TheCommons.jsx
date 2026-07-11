@@ -266,7 +266,7 @@ export default function TheCommons() {
                 {SUPPLIERS.map((supplier) => (
                   <div
                     key={supplier.id}
-                    className="group flex w-[85vw] max-w-[420px] shrink-0 touch-manipulation snap-start flex-col border border-ash/20 bg-onyx transition-colors duration-300 hover:border-ash md:w-auto md:max-w-none md:flex-row md:items-stretch"
+                    className="group flex w-[85vw] max-w-[420px] shrink-0 touch-manipulation snap-start flex-col border border-ash/20 bg-onyx transition-colors duration-300 hover:border-ash md:min-h-[10.5rem] md:w-auto md:max-w-none md:flex-row md:items-stretch"
                   >
                     {/* Photograph — fills the space the avatar square used to take.
                         overflow-hidden contains the hover scale; the district pill
@@ -277,7 +277,7 @@ export default function TheCommons() {
                         alt={supplier.imageAlt}
                         loading="lazy"
                         decoding="async"
-                        className="h-full w-full object-cover transition-[transform,filter] duration-300 ease-out group-hover:scale-[1.05] group-hover:brightness-105 group-active:scale-[1.03] group-active:brightness-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-active:scale-100"
+                        className="h-full w-full object-cover transition-[transform,filter] duration-300 ease-out group-hover:scale-[1.05] group-hover:brightness-105 group-active:scale-[1.03] group-active:brightness-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-active:scale-100 md:absolute md:inset-0"
                       />
                       <span className="absolute left-3 top-3 border border-ash/40 bg-void px-2 py-1 font-mono text-[9px] uppercase tracking-widest text-bone">
                         {supplier.district}

@@ -54,6 +54,32 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Scroll-direction-aware navbar: hide on scroll down, reveal on scroll up.
+  // Lenis smooths the *native* window scroll, so a passive scroll listener
+  // stays perfectly in sync with the smoothed position — no drift.
+  const [navHidden, setNavHidden] = useState(false);
+
+  useEffect(() => {
+    const TOP_THRESHOLD = 100; // never hide within this distance of the top
+    const JITTER = 4; // ignore sub-pixel/momentum wobble between frames
+    let lastY = window.scrollY;
+
+    const handleScroll = () => {
+      const y = window.scrollY;
+      if (y < TOP_THRESHOLD) {
+        setNavHidden(false);
+      } else if (y > lastY + JITTER) {
+        setNavHidden(true);
+      } else if (y < lastY - JITTER) {
+        setNavHidden(false);
+      }
+      lastY = y;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Segment state persisted in localStorage
   const [activeSegment, setActiveSegment] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -87,7 +113,11 @@ export default function App() {
       <MagneticCursor />
 
       {/* Global Header Navigation */}
-      <nav className="fixed top-0 z-50 flex w-full flex-col items-center justify-between gap-4 border-b border-ash/10 bg-void/80 px-5 py-6 backdrop-blur-md md:flex-row md:px-16">
+      <nav
+        className={`fixed top-0 z-50 flex w-full flex-col items-center justify-between gap-4 border-b border-ash/10 bg-void/80 px-5 py-6 backdrop-blur-md transition-transform duration-300 ease-out motion-reduce:transition-none md:flex-row md:px-16 ${
+          navHidden ? '-translate-y-full' : 'translate-y-0'
+        }`}
+      >
         <div className="font-serif text-2xl uppercase tracking-tighter text-bone select-none">Brickhunter</div>
         
         {/* Segment Selector Pills */}

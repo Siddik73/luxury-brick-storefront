@@ -60,6 +60,17 @@ html.segment-ecommerce {
 }
 
 @layer base {
+  /* Offset anchor jumps by the fixed navbar's rendered height so section
+     headings never land hidden beneath it (nav stacks taller on mobile). */
+  html {
+    scroll-padding-top: 10.5rem;
+  }
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 6.5rem;
+    }
+  }
+
   body {
     @apply bg-void text-bone antialiased overflow-x-hidden;
     /* Font smoothing and rendering optimization */
