@@ -75,7 +75,7 @@ export const POLICY_PAGES = {
     sections: [
       {
         heading: 'Terms of Acquisition',
-        body: 'Acquisition constitutes acceptance of these terms. Title transfers upon confirmed settlement and signature at destination. The Monolith is an art object; it is not certified for structural use.',
+        body: 'Acquisition constitutes acceptance of these terms. Title transfers upon confirmed settlement and signature at destination. The brick is sold as an art object; it is not certified for structural use.',
         note: '[PLACEHOLDER — NEEDS LEGAL REVIEW]',
       },
       {

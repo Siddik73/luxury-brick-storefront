@@ -19,7 +19,7 @@ export const COPY_TEXT = {
   HERO_TAGLINE: 'Unyielding. Elemental. Absolute.',
   HERO_DESCRIPTION: 'Thermally-cured earthen silicate curated for the modern apex. A singular manifestation of permanence and refined brutalist geometry.',
   
-  CHECKOUT_HEADER: 'Acquire the Monolith.',
+  CHECKOUT_HEADER: 'Acquire the Brick.',
   CHECKOUT_SUBTEXT: 'One unit. One custodian. No reproductions.',
 
   FOOTER_COPYRIGHT: '© 2026 Brickhunter. Architectural integrity secured.',
@@ -87,6 +87,6 @@ export const PROVENANCE_STORY = [
     step: 3,
     title: 'Timeless Structure.',
     tagline: 'Engineered to outlast its owner. Outlast the architecture.',
-    body: 'A quiet protest against the ephemeral trends of digital screens. The Monolith stands as a raw, tangible anchor in a passing world.',
+    body: 'A quiet protest against the ephemeral trends of digital screens. This brick stands as a raw, tangible anchor in a passing world.',
   },
 ];

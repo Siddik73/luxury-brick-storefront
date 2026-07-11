@@ -127,7 +127,7 @@ export default function Hero({ activeSegment = 'decorative' }) {
           {videoError ? (
             <img
               src="/brick-fallback.png"
-              alt="The Monolith Fallback"
+              alt="The brick in dramatic studio lighting"
               className="w-full h-full object-cover opacity-60"
             />
           ) : (

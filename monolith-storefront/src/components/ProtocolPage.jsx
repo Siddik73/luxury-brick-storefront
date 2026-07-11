@@ -88,7 +88,7 @@ export default function ProtocolPage({ kicker, title, intro, sections, placehold
           href="#hero"
           className="magnetic mt-16 inline-flex min-h-[44px] items-center gap-3 font-mono text-[10px] uppercase tracking-widest text-ash transition-colors duration-300 hover:text-bone"
         >
-          <span aria-hidden="true">&larr;</span> Return to the Monolith
+          <span aria-hidden="true">&larr;</span> Return to the storefront
         </a>
       </div>
     </motion.main>

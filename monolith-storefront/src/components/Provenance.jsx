@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PROVENANCE_MEDIA = {
   1: {
     src: '/images/brick-clay-raw.webp',
-    alt: 'A macro photograph of raw compressed earth clay, showing the layered geological striations of silica, alumina, and iron oxides that form the foundation of The Monolith. The textured surface reveals mineral deposits and sedimentary layers untouched by modernity.',
+    alt: 'A macro photograph of raw compressed earth clay, showing the layered geological striations of silica, alumina, and iron oxides that form the foundation of the brick. The textured surface reveals mineral deposits and sedimentary layers untouched by modernity.',
     refLabel: 'Ref. 01-CLAY',
   },
   2: {
@@ -87,7 +87,7 @@ function ProvenanceImage({ src, alt, refLabel, eager = false }) {
         decoding="async"
         onError={(e) => {
           e.currentTarget.src = '/brick-fallback.png';
-          e.currentTarget.alt = 'The Monolith — compressed earth foundation';
+          e.currentTarget.alt = 'The brick — compressed earth foundation';
         }}
       />
 
