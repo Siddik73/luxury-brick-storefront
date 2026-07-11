@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-The Monolith is currently pre-1.0 and under active development. Security fixes are applied to the latest release on `main` only.
+Brickhunter is currently pre-1.0 and under active development. Security fixes are applied to the latest release on `main` only.
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -13,7 +13,7 @@ Once the project reaches a 1.0 release, this table will be updated to reflect a 
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in The Monolith, please **do not open a public issue**. Instead, report it privately so it can be addressed before public disclosure.
+If you discover a security vulnerability in Brickhunter, please **do not open a public issue**. Instead, report it privately so it can be addressed before public disclosure.
 
 - **Email**: [security@yourdomain.example](mailto:security@yourdomain.example) *(replace with a real monitored address before publishing this repo)*
 - **Alternative**: Use [GitHub's private vulnerability reporting](../../security/advisories/new) for this repository, if enabled.
@@ -48,6 +48,6 @@ This is a client-side, static-hosted React application with no backend or user d
 
 ## Acknowledgments
 
-We're grateful to the security researchers and community members who responsibly disclose vulnerabilities and help keep The Monolith — and its users — safe. Contributors who report valid, previously-unknown vulnerabilities will be credited here (with their permission) once a fix has shipped.
+We're grateful to the security researchers and community members who responsibly disclose vulnerabilities and help keep Brickhunter — and its users — safe. Contributors who report valid, previously-unknown vulnerabilities will be credited here (with their permission) once a fix has shipped.
 
 *No vulnerabilities have been reported or disclosed at this time.*

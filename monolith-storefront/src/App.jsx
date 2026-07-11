@@ -88,7 +88,7 @@ export default function App() {
 
       {/* Global Header Navigation */}
       <nav className="fixed top-0 z-50 flex w-full flex-col items-center justify-between gap-4 border-b border-ash/10 bg-void/80 px-5 py-6 backdrop-blur-md md:flex-row md:px-16">
-        <div className="font-serif text-2xl uppercase tracking-tighter text-bone select-none">The Monolith</div>
+        <div className="font-serif text-2xl uppercase tracking-tighter text-bone select-none">Brickhunter</div>
         
         {/* Segment Selector Pills */}
         <div className="flex max-w-full flex-wrap justify-center gap-1.5 rounded-full border border-ash/10 bg-void/50 p-1">

@@ -1,6 +1,6 @@
 # 🏗️ Architecture
 
-**Project:** The Monolith
+**Project:** Brickhunter
 **Type:** Static, client-side single-page application (no backend)
 
 ## 📑 Table of Contents

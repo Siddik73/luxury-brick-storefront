@@ -23,7 +23,7 @@ export default function Footer() {
         
         {/* Column 1: Brand Info */}
         <div className="md:col-span-5 flex flex-col gap-6">
-          <div className="font-serif text-3xl uppercase tracking-tighter text-bone">The Monolith</div>
+          <div className="font-serif text-3xl uppercase tracking-tighter text-bone">Brickhunter</div>
           <p className="max-w-xs font-serif text-sm italic leading-relaxed text-ash/60">
             &ldquo;A singular manifestation of architectural silence and refined geometry.&rdquo;
           </p>

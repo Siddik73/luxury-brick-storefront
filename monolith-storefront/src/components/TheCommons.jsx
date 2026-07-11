@@ -117,7 +117,7 @@ export default function TheCommons() {
         body: JSON.stringify({
           access_key: accessKey,
           subject: `The Commons — Quotation Request (${quantity.toLocaleString('en-IN')} pcs)`,
-          from_name: 'The Monolith — The Commons',
+          from_name: 'Brickhunter — The Commons',
           business_name: businessName.trim(),
           phone: `+880${phone.replace(/[\s-]/g, '')}`,
           delivery_district: district,

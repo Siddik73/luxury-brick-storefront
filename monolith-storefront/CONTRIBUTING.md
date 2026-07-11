@@ -1,4 +1,4 @@
-# Contributing to The Monolith
+# Contributing to Brickhunter
 
 First off — thank you for considering a contribution to the most important brick e-commerce platform ever built. Whether you're fixing a typo in a price tag or refactoring the physics engine that lets people throw a $1,250 brick across the screen, every contribution is treated with the same reverence we apply to the brick itself: unyielding, elemental, absolute.
 
@@ -160,4 +160,4 @@ There is currently no automated test suite in this project. Until one is introdu
 
 ---
 
-Thank you for helping make The Monolith unyielding, elemental, and absolute. 🧱
+Thank you for helping make Brickhunter unyielding, elemental, and absolute. 🧱

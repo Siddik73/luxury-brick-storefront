@@ -1,6 +1,6 @@
 /**
  * @file main.jsx
- * @description Application entry point for "The Monolith" React storefront.
+ * @description Application entry point for the "Brickhunter" React storefront.
  * Initializes React 18, mounts the root App component, sets up StrictMode,
  * and boots the Lenis smooth-scroll engine.
  */

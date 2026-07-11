@@ -4,7 +4,7 @@
 **Version:** 1.0
 **Date:** *[Insert Date]*
 
-> **Note:** This PRD is preserved as originally written during the planning phase. The shipped product ("The Monolith") diverges from it in a few places — most notably the price point, which shipped at **$1,250** rather than the **$14,999.00** specified below. See [`docs/DESIGN.md`](DESIGN.md) and [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) for what was actually built.
+> **Note:** This PRD is preserved as originally written during the planning phase. The shipped product ("Brickhunter") diverges from it in a few places — most notably the price point, which shipped at **$1,250** rather than the **$14,999.00** specified below. See [`docs/DESIGN.md`](DESIGN.md) and [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) for what was actually built.
 
 ## 📑 Table of Contents
 

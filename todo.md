@@ -1,4 +1,4 @@
-# To-Do List: "The Monolith" Premium Brick Storefront
+# To-Do List: "Brickhunter" Premium Brick Storefront
 
 ## Phase 1: Setup & Scaffolding
 

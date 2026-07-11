@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "The Monolith — an ultra-premium, one-of-one digital storefront for a single red brick. Built with React, Vite, Tailwind, GSAP, and Framer Motion.",
+  "description": "Brickhunter — an ultra-premium digital storefront for a single red brick. Built with React, Vite, Tailwind, GSAP, and Framer Motion.",
   "keywords": [
     "react",
     "vite",

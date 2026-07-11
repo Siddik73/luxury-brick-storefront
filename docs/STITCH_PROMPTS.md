@@ -1,6 +1,6 @@
 # 🪄 Stitch Prompts
 
-A record of the [Google Stitch](https://stitch.withgoogle.com/) prompts used to generate the visual design for The Monolith, organized by section and in the order they were written.
+A record of the [Google Stitch](https://stitch.withgoogle.com/) prompts used to generate the visual design for Brickhunter, organized by section and in the order they were written.
 
 ## How to Use This File
 

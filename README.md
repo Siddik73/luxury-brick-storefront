@@ -1,4 +1,4 @@
-# The Monolith 🧱
+# Brickhunter 🧱
 
 > *It's not a brick. It's a lifestyle.*
 
@@ -14,7 +14,7 @@ An ultra-premium, one-of-one digital storefront for a single red brick — becau
 </p>
 
 <p align="center">
-  <img src="docs/SCREENSHOTS/hero-desktop.png" alt="The Monolith hero section — a single red brick presented as an object of desire" width="100%" />
+  <img src="docs/SCREENSHOTS/hero-desktop.png" alt="Brickhunter hero section — a single red brick presented as an object of desire" width="100%" />
 </p>
 
 <p align="center">
@@ -46,7 +46,7 @@ An ultra-premium, one-of-one digital storefront for a single red brick — becau
 
 ## About the Project
 
-The Monolith is a satirical exercise in luxury marketing psychology, disguised as a fully functional e-commerce storefront. The premise is simple and absurd: take the single most mundane, unglamorous object imaginable — a plain red clay brick — and sell it for $1,250 using the exact visual language, pacing, and pretension of a high-fashion editorial site.
+Brickhunter is a satirical exercise in luxury marketing psychology, disguised as a fully functional e-commerce storefront. The premise is simple and absurd: take the single most mundane, unglamorous object imaginable — a plain red clay brick — and sell it for $1,250 using the exact visual language, pacing, and pretension of a high-fashion editorial site.
 
 Every design decision is deliberate theater. The void-black backgrounds and surgical negative space borrow from luxury beauty campaigns. The Playfair Display headlines and JetBrains Mono price tags borrow from watch auction houses. The scroll-triggered "Provenance" story — "Compressed Earth," "Calcined Fire," "Timeless Structure" — reads like tasting notes for a whisky that costs more than a used car. None of it is ironic in tone; it's played completely straight, which is exactly what makes it funny.
 
@@ -152,7 +152,7 @@ Once running, scroll through the experience top to bottom:
 2. **Provenance** — scroll through the three-part origin story
 3. **Specs** — a bento grid of technical specifications, "numbers as art"
 4. **Playground** — configure color, size, texture, and finish on a live masonry wall preview
-5. **Checkout** — attempt to acquire your own Monolith for $1,250 (no actual payment processing is wired up — this is a portfolio piece)
+5. **Checkout** — attempt to acquire your own brick for $1,250 (no actual payment processing is wired up — this is a portfolio piece)
 6. **The Commons** — request a bulk quotation through the Dhaka Exchange configurator (also no real transaction — an inquiry form only)
 
 ```bash
@@ -193,4 +193,4 @@ Distributed under the MIT License. See **[LICENSE](LICENSE)** for more informati
 
 Found a bug, or just want to say the brick is beautiful? [Open an issue](https://github.com/Siddik73/luxury-brick-storefront/issues/new/choose) or reach out directly.
 
-<p align="center"><em>The Monolith. Unyielding. Elemental. Absolute.</em></p>
+<p align="center"><em>Brickhunter. Unyielding. Elemental. Absolute.</em></p>

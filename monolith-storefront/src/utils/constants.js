@@ -1,7 +1,7 @@
 /**
  * @file constants.js
  * @description Global configuration variables, copywriting content, section anchors,
- * and design specifications for "The Monolith" application.
+ * and design specifications for the "Brickhunter" application.
  */
 
 // Anchor section identifier names
@@ -22,7 +22,7 @@ export const COPY_TEXT = {
   CHECKOUT_HEADER: 'Acquire the Monolith.',
   CHECKOUT_SUBTEXT: 'One unit. One custodian. No reproductions.',
 
-  FOOTER_COPYRIGHT: '© 2026 The Monolith. Architectural integrity secured.',
+  FOOTER_COPYRIGHT: '© 2026 Brickhunter. Architectural integrity secured.',
 };
 
 // Specifications bento details

@@ -1,6 +1,6 @@
 # 🎨 Design Document
 
-**Project:** The Monolith
+**Project:** Brickhunter
 **Aesthetic:** Brutalist Luxury
 
 > This document is preserved as originally written during the design phase. See [`docs/PRD.md`](PRD.md) for the product requirements and [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) for what was actually implemented.

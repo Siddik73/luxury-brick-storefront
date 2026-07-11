@@ -1,4 +1,4 @@
-# To-Do List: "The Monolith" Premium Brick Storefront
+# To-Do List: "Brickhunter" Premium Brick Storefront
 
 ## Phase 1: Setup & Scaffolding
 
@@ -42,6 +42,6 @@
 - [ ] **Open Graph Image:** Design and export `public/og-image.png` so social shares render a proper preview card (currently an empty placeholder).
 - [ ] **Twitter/X Card Meta Tags:** Add `twitter:card`, `twitter:title`, and `twitter:image` meta tags to `index.html` for rich link previews.
 - [ ] **Share Buttons:** Add "Share on X" / "Share on LinkedIn" buttons to the Checkout or Footer section, pre-filled with the satirical pitch copy.
-- [ ] **Launch Post:** Draft a launch announcement post (X/LinkedIn) introducing The Monolith, timed to go out alongside the pitch video.
+- [ ] **Launch Post:** Draft a launch announcement post (X/LinkedIn) introducing Brickhunter, timed to go out alongside the pitch video.
 - [ ] **Demo GIF:** Record a short looping GIF of the Playground physics sandbox for embedding directly in social posts and the README.
-- [ ] **Product Hunt Listing:** Consider submitting The Monolith to Product Hunt as a joke/portfolio launch, with the pitch copy adapted for that audience.
+- [ ] **Product Hunt Listing:** Consider submitting Brickhunter to Product Hunt as a joke/portfolio launch, with the pitch copy adapted for that audience.

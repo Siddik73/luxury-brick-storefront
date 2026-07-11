@@ -15,7 +15,7 @@ export const POLICY_PAGES = {
     sections: [
       {
         heading: 'Transaction Integrity',
-        body: 'Payment is processed through PCI-DSS compliant custodial processors. Card credentials never touch Monolith archives. Each settlement is sealed with a unique ledger entry and confirmed to the custodian in writing.',
+        body: 'Payment is processed through PCI-DSS compliant custodial processors. Card credentials never touch Brickhunter archives. Each settlement is sealed with a unique ledger entry and confirmed to the custodian in writing.',
         note: 'Encrypted in transit. Encrypted at rest.',
       },
       {
